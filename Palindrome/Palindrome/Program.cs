@@ -8,26 +8,71 @@ namespace Palindrome
 {
     class Program
     {
+            /// <summary>
+            /// Main etry
+            /// </summary>
+            /// <param name="args"></param>
             static void Main(string[] args)
+        {
+
+
+            int version = 0;
+
+            version = int.Parse(args[0]);
+
+         
+
+            string inputStr = takeInput();
+
+            var isPalindrome = false;
+            if (version  == 1)
             {
-               
-                var inputStr = takeInput();
-                var isPalindrome = CheckStringForPalindome(inputStr);
+               isPalindrome = CheckStringForPalindomeVersion1(inputStr);
+
+            }
+            else if(version == 1){
+                isPalindrome = CheckStringForPalindomeVersion2(inputStr);
             }
 
+       
+
+            DisplayResult(inputStr, isPalindrome);
+
+            Console.ReadLine();
+
+        }
+
+      
 
 
-            /// <summary>
-            /// This function does just one thing.  It takes the input value from Console.ReadLine
-            /// </summary>
-            /// <returns>string</returns>
-            public static string takeInput()
+
+
+
+        private static void DisplayResult(string inputStr, bool isPalindrome)
+        {
+            if (isPalindrome == true)
+            {
+                Console.WriteLine($"{inputStr} is a palindrome");
+            }
+            else
+            {
+                Console.WriteLine($"{inputStr} is not a palindrome");
+            }
+        }
+
+
+
+        /// <summary>
+        /// This function does just one thing.  It takes the input value from Console.ReadLine
+        /// </summary>
+        /// <returns>string</returns>
+        public static string takeInput()
             {
 
                 Console.WriteLine("Please enter a word");
-                var orginalStr = Console.ReadLine();
+                var inputStr = Console.ReadLine();
 
-                return orginalStr;
+                return inputStr;
 
             }
 
@@ -37,7 +82,7 @@ namespace Palindrome
             /// </summary>
             /// <param name="input"></param>
             /// <returns>bool</returns>
-            static bool CheckStringForPalindome(string input)
+            static bool CheckStringForPalindomeVersion1(string input)
             {
 
                 char[] ch = input.ToCharArray();
@@ -49,11 +94,23 @@ namespace Palindrome
                 {
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
 
-                return false;
+                //return false;
             }
 
+
+        private static bool CheckStringForPalindomeVersion2(string inputStr)
+        {
+            throw new NotImplementedException();
         }
+
+
+
+    }
     }
 
 
@@ -96,6 +153,10 @@ namespace palindromecheck
 
             string string1, rev;
             string1 = "Malayalam";
+
+
+       
+              //put this logic into version2 function
             char[] ch = string1.ToCharArray();
 
             Array.Reverse(ch);
@@ -123,6 +184,10 @@ public class PalindromeExample
         int n, r, sum = 0, temp;
         Console.Write("Enter the Number: ");
         n = int.Parse(Console.ReadLine());
+
+
+
+        //Move this into a new function
         temp = n;
         while (n > 0)
         {
