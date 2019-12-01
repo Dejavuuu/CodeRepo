@@ -10,22 +10,49 @@ namespace Palindrome
     {
             static void Main(string[] args)
             {
-                String first;
-                Console.WriteLine("Please enter you name?");
-                takeInput();
+               
+                var inputStr = takeInput();
+                var isPalindrome = CheckStringForPalindome(inputStr);
             }
 
 
 
-            public static void takeInput()
+            /// <summary>
+            /// This function does just one thing.  It takes the input value from Console.ReadLine
+            /// </summary>
+            /// <returns>string</returns>
+            public static string takeInput()
             {
-                 
-                //var first = takeInput();
-                char[] ch = first.ToCharArray();
+
+                Console.WriteLine("Please enter a word");
+                var orginalStr = Console.ReadLine();
+
+                return orginalStr;
+
+            }
+
+
+            /// <summary>
+            /// This function takes the input string and checks if the string is a palindrome
+            /// </summary>
+            /// <param name="input"></param>
+            /// <returns>bool</returns>
+            static bool CheckStringForPalindome(string input)
+            {
+
+                char[] ch = input.ToCharArray();
 
                 Array.Reverse(ch);
+                var reverString = new string(ch);
 
+                if(input == reverString)
+                {
+                    return true;
+                }
+
+                return false;
             }
+
         }
     }
 
