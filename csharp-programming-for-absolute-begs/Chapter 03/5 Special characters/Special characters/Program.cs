@@ -11,7 +11,7 @@ namespace Special_characters
         static void Main(string[] args)
         {
             // Multiline output
-            Console.WriteLine("First line\r\nSecond line"); // testing testing
+            Console.WriteLine("First line\r\nSecond line"); 
 
             // I prefer specifying "Enter" in more human form
             Console.WriteLine("First line" + Environment.NewLine + "Second line");
